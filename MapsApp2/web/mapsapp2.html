@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+html {
+  height: 100%
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0
+}
+
+#map-canvas {
+  height: 100%
+}
+</style>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRdUWOHhQmfUOTgogdVBSPR7IbE64FUsY&sensor=false">
+  </script>
+<script src="mapsapp2.dart" type="application/dart"></script>
+<script type="text/javascript">
+    function initialize() {
+      
+        var Glasgow = new google.maps.LatLng(55.864237000000000000,-4.251805999999988000 );
+        var China = new google.maps.LatLng(40.6769, 117.2319);
+        var LochNess = new google.maps.LatLng(57.322857, -4.424382);
+        var Falls = new google.maps.LatLng(43.1001200, -79.0710);
+        var Canyon = new google.maps.LatLng(36.1000, -112.1000);
+        var Reef = new google.maps.LatLng(-18.286130200000000000, 147.7000);
+        var Rio = new google.maps.LatLng(-22.9519, -43.2106);
+        var Stagg = new google.maps.LatLng(52.5186, 13.3760);
+        var Pyramids = new google.maps.LatLng(29.9792, 31.1344);
+        var Tower = new google.maps.LatLng(48.8582, 2.2945);
+        var Familia = new google.maps.LatLng(41.4036, 2.1744);
+        var Mahal = new google.maps.LatLng(27.1742, 78.0422);
+        var Pichu = new google.maps.LatLng(-13.163721000000000000, -72.545943299999970000);
+        var Mecca = new google.maps.LatLng(21.4167, 39.8167);
+        
+        
+        var mapOptions = {
+        center: Glasgow,
+        zoom: 4,
+        panControl: true,
+        zoomControl: true,
+        scaleControl: true,
+        overviewMapControl: true,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+          
+      var map = new google.maps.Map(document.getElementById("map-canvas"),
+        mapOptions);
+      
+      var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Glasgow</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>Glasgow</b>, is the largest city in Scotland, and the 4th largest in the United Kingdom. '+
+          'Glasgow grew from a small rural settlement on the River Clyde to become one of the largest '+
+          'seaports in Britain. From the 18th century the city also grew as one of Great Britains main hubs '+
+          'of transatlantic trade with North America and the West Indies. '+
+          'During the Industrial Revolution, the population and economy of Glasgow expanded rapidly to become '+
+          'one of the worlds pre-eminent centres of chemicals, textiles and '+
+          'engineering; most notably in the shipbuilding and marine engineering industry. </p> '+
+          '<p>Attribution: Glasgow, <a href="http://en.wikipedia.org/wiki/Glasgow"> '+
+          'http://en.wikipedia.org/wiki/Glasgow</a> '+
+          '</p>'+
+          '</div>'+
+          '</div>';
+          
+       var chinaString = '<div id="content">'+
+             '<div id="siteNotice">'+
+              '</div>'+
+              '<h1 id="firstHeading" class="firstHeading">Great Wall of China</h1>'+
+              '<div id="bodyContent">'+
+              '<p><b>The Great Wall of China</b>, is built along the east-to-west historical borders of ' +
+              'northern China. It was built to protect the Chinese Empire and its prototypical states '+
+              'against intrusions by various nomadic groups or military incursions. '+
+              'Several walls were being built as early as the 7th century BC, and were later joined together '+
+              'and made bigger and stronger, are now collectively referred to as the Great Wall. '+
+              'Especially famous is the wall built between 220Ð206 BC by the first Emperor of China, Qin Shi Huang '+
+              'however little of that wall still remians. Since then the wall has been iteratively rebuilt '+
+              'with the majority of remaining wall dating back to the Ming dynasty. </p>'+
+              '<p>Attribution: Great Wall of China, <a href="http://en.wikipedia.org/wiki/Great_Wall_of_China">'+
+              'http://en.wikipedia.org/wiki/Great_Wall_of_China</a> '+
+              '</p>'+
+              '</div>'+
+              '</div>';
+              
+ 
+      var nessString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Loch Ness</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>Loch Ness</b>, is located near the south west of Inverness. It is a large ' +
+          'freshwater loch expanding nearly 23 miles. '+
+          'Loch Ness is best known for harbouring the mythical sea monster "Nessie". '+
+          'Inverness is also the site of the last pitched battle'+
+          'on British soil. The battle of Culloden took place on 16th April 1746 '+
+          'where the Jacobites were defeated by the "Butcher" Cumberland and the '+
+          'government troops. </p>'+
+          '<p>Attribution: Loch Ness, <a href="http://en.wikipedia.org/wiki/Loch_ness#Monster">'+
+          'http://en.wikipedia.org/wiki/Loch_ness#Monster</a> '+
+          '</p>'+
+          '</div>'+
+          '</div>';     
+    
+    var fallsString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Niagara Falls</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>Niagara Falls</b>, is the collective name assigned to the three waterfalls ' +
+        'that straddle the international border between Canada and the United States; specifically '+
+        'between the province of Ontario and the state of New York. They form the southern end of the '+
+        'Niagara Gorge. Located on the Niagara River, the combined falls form the highest '+
+        'flow rate of any waterfall in the world, with a vertical drop of more than 50m. '+
+        'The Niagara Falls are not only renowned for their beauty, but also as a valuable source '+
+        'of hydroelectric power. </p>'+
+        '<p>Attribution: Niagara Falls, <a href="http://en.wikipedia.org/wiki/Niagara_Falls">'+
+        'http://en.wikipedia.org/wiki/Niagara_Falls</a> '+
+        '</p>'+
+        '</div>'+
+        '</div>';
+
+  var canyonString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Grand Canyon</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>The Grand Canyon</b>, a steep-sided canyon carved by the Colorado River in the United States ' +
+      'in the state of Arizona. It is contained within and managed by Grand Canyon National Park, the Hualapai '+
+      'Tribal Nation, and the Havasupai Tribe. The Grand Canyon is 277 miles long, up to 18 miles wide and attains '+
+      'a depth of over a mile. Recent evidence suggests that the Colorado River established its route through the '+
+      'canyon at least 17 million years ago. Since then, the Colorado River continued to erode and form '+
+      'the canyon to its present-day configuration. </p>'+
+      '<p>Attribution: Grand Canyon, <a href="http://en.wikipedia.org/wiki/Grand_Canyon">'+
+      'http://en.wikipedia.org/wiki/Grand_Canyon</a> '+
+      '</p>'+
+      '</div>'+
+      '</div>';
+    
+    var reefString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Great Barrier Reef</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>The Great Barrier Reef</b>, is the worlds largest coral reef system composed '+
+        'of over 2,900 individual reefs and 900 islands stretching for over 1,400 miles over an area of approximately '+
+        '133,000 square miles. The reef is located in the Coral Sea, off the coast of Queensland, Australia. '+
+        'The Great Barrier Reef can be seen from outer space and is the worlds biggest single structure made by living organisms. '+
+        'This reef structure is composed of and built by billions of tiny organisms, known as coral polyps. '+
+        'It supports a wide diversity of life and was selected as a World Heritage Site in 1981 and The Queensland National Trust '+
+        'also named it a state icon of Queensland. </p>'+
+        '<p>Attribution: Great Barrier Reef, <a href="http://en.wikipedia.org/wiki/Great_Barrier_Reef">'+
+        'http://en.wikipedia.org/wiki/Great_Barrier_Reef</a> '+
+        '</p>'+
+        '</div>'+
+        '</div>';
+                    
+    var rioString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Christ the Redeemer</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>Christ the Redeemer</b>, is a statue of Jesus Christ, located in ' +
+        'Rio de Janeiro. It was regarded as the largest Art Deco statue in the world until 2010 '+
+        'when Christ the King was completed in Poland. Standing at 30m tall '+
+        'it weighs 635 tonnes made from reinforced steel and soapstone. '+
+        'The statue is placed at the summit of the Cocovado Mountain in the '+
+        'Tijuca Forest National Park overlooking the city as an icon of Christianity '+
+        'in Brazil.</p>'+
+        '<p>Attribution: Christ the Redeemer, <a href="http://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)">'+
+        'http://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)</a> '+
+        '</p>'+
+        '</div>'+
+        '</div>';
+        
+    var staggString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Reichstag</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>The Reichstag</b>, is a historical building in Berlin built to house ' +
+        'the Imperial Diet (Reichstag). In 1993 the building was badly burnt in a fire and fell into disuse. '+
+        'The parliament of the German Democratic Republic (Volkskammer) moved to Palast der Republik in East Berlin, '+
+        'while the parliament of the Federal Republic of Germany (the Bundestag) met in the Bundeshaus in Bonn. '+
+        'Upon German reunification on October the 3rd 1990, the building underwent serious reconstruction '+
+        'led by Norman Foster. Once completed in 1999 the Reichstag was once again installed as '+
+        'the meeting place of the German government, the modern Bundestag.</p>'+
+        '<p>Attribution: The Reichstag, <a href="http://en.wikipedia.org/wiki/Reichstag_building">'+
+        'http://en.wikipedia.org/wiki/Reichstag_building</a> '+
+        '</p>'+
+        '</div>'+
+        '</div>';
+        
+  var pyramidsString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Pyramids</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>The Pyramids of Giza</b>, are ancient monuments located on the outskirts of Cairo in Egypt. '+
+      'This group of ancient monuments includes the three pyramid complexes known as the Great Pyramids, the '+
+      'incredible sculpture known as the Great Sphinx, several cemeteries, a workers village and an industrial complex. '+
+      'The Pyramids are beacons of ancient Egypt, particularly in Western culture, highlighted '+
+      'when the Great Pyramid was listed by Antipater of Sidon, an ancient Greek poet, as one of the Seven Wonders of the World. '+
+      'It is by far the oldest of the ancient Wonders and the only one still in existence. '+
+      '</p>'+
+      '<p>Attribution: The Pyramids, <a href="http://en.wikipedia.org/wiki/Giza_Necropolis">'+
+      'http://en.wikipedia.org/wiki/Giza_Necropolis</a> '+
+      '</p>'+
+      '</div>'+
+      '</div>';
+      
+    var towerString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Eiffel Tower</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>The Eiffel Tower</b>, is located on the Champ de Mars in Paris. It was named after the engineer Gustave Eiffel, '+
+        'whose company designed and built the tower. Initially criticised by some of Frances leading artists and intellectuals '+
+        'for its design, it has since become a global cultural icon of France and one of the most recognisable structures in the world. '+
+        'The tower is the tallest structure in Paris and the most-visited paid monument in the world; 6.98 million people scaled it in 2011. '+
+        'The tower received its 250 millionth visitor in 2010. '+
+        '</p>'+
+        '<p>Attribution: The Eiffel Tower, <a href="http://en.wikipedia.org/wiki/Eiffel_Tower">'+
+        'http://en.wikipedia.org/wiki/Eiffel_Tower</a> '+
+        '</p>'+
+        '</div>'+
+        '</div>';
+                
+    var familiaString = '<div id="content">'+
+        '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">Sagrada Familia</h1>'+
+        '<div id="bodyContent">'+
+        '<p><b>The Basilica i Temple Expiatori de la Sagrada Familia</b>, is a large Roman Catholic church in Barcelona, Spain, designed '+
+        'by Catalan architect Antoni Gaudi Construction of Sagrada Familia had commenced in 1882, Gaudi became involved in 1883, taking '+
+        'over the project and transforming it with his architectural and engineering style. Gaudi devoted his last years to the project, and at '+
+        'the time of his death at age 73 in 1926 less than a quarter of the project was complete. Construction of the Sagrada Familia progressed '+
+        'slowly, as it relied on private donations and was interrupted by the Spanish Civil War, only to resume intermittent progress in the 1950s. '+
+        'Construction passed the midpoint in 2010 with the greatest challenges still remaining and an anticipated completion date of 2026, the '+
+        'centenary of Gaudis death. '+
+        '</p>'+
+        '<p>Attribution: The Sagrada Familia, <a href="http://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia">'+
+        'http://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia</a> '+
+        '</p>'+
+        '</div>'+
+        '</div>';
+        
+        var mahalString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Taj Mahal</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>The Taj Mahal,</b>, "the crown of palaces" is a white marble mausoleum located in Agra, Uttar Pradesh, India. '+
+            'It was built by Mughal emperor Shah Jahan in memory of his third wife, Mumtaz Mahal. The Taj Mahal is widely recognised as "the jewel '+
+            'of Muslim art in India and one of the universally admired masterpieces of the worlds heritage." '+
+            'Taj Mahal is regarded by many as the finest example of Mughal architecture, a style that combines elements from Islamic, Persian, '+
+            'Ottoman Turkish and Indian architectural styles. '+
+            '</p>'+
+            '<p>Attribution: Taj Mahal, <a href="http://en.wikipedia.org/wiki/Taj_Mahal">'+
+            'http://en.wikipedia.org/wiki/Taj_Mahal</a> '+
+            '</p>'+
+            '</div>'+
+            '</div>';
+            
+      var pichuString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Machu Picchu</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>Machu Picchu</b>, is a 15th-century Inca site located 2,430 metres above sea level. It is located in the Cusco Region, '+
+          'Urubamba Province, Machu picchu District in Peru. Most archaeologists believe that Machu Picchu was built as an estate for the Inca '+
+          'emperor Pachacuti (1438Ð1472). Often mistakenly referred to as the "Lost City of the Incas", it is perhaps the most familiar icon of Inca civilization. '+
+          'The Incas built the estate around 1450, but abandoned it a century later at the time of the Spanish Conquest. '+
+          'After being visited in 1911 by the American historian Hiram Bingham, Machu Picchu has become an important tourist attraction. '+
+          'Most of the outlying buildings have been reconstructed in order to give tourists a better idea of what the structures originally looked like. '+
+          '</p>'+
+          '<p>Attribution: Machu Picchu, <a href="http://en.wikipedia.org/wiki/Machu_Picchu">'+
+          'http://en.wikipedia.org/wiki/Machu_Picchu</a> '+
+          '</p>'+
+          '</div>'+
+          '</div>';
+          
+      var meccaString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Mecca</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>The Holy city of Mecca</b>, is the capital of Makkah Province in Saudi Arabia. As the birthplace of Muhammad and a site of Muhammads '+
+          'first revelation of the Quran Mecca is regarded as the holiest city in the religion of Islam and a pilgrimage to it known as the Hajj is obligatory. '+
+          'for all able Muslims. Mecca is home to the Kaaba, by majority description Islams holiest site, as well as being the direction of Muslim prayer, '+
+          'More than 15 million Muslims visit Mecca annually, including several million during the Hajj. '+
+          'As a result, Mecca has become one of the most cosmopolitan and diverse cities in the Muslim world, despite the fact that non-Muslims are prohibited '+
+          'from entering the city. '+
+          '</p>'+
+          '<p>Attribution: Mecca, <a href="http://en.wikipedia.org/wiki/Mecca">'+
+          'http://en.wikipedia.org/wiki/Mecca</a> '+
+          '</p>'+
+          '</div>'+
+          '</div>';
+                                                      
+
+        var infowindow = new google.maps.InfoWindow({
+        content: contentString 
+        });
+        
+        var chinawindow = new google.maps.InfoWindow({
+          content: chinaString 
+        });
+        
+        var nesswindow = new google.maps.InfoWindow({
+          content: nessString 
+        });
+        
+        var fallswindow = new google.maps.InfoWindow({
+          content: fallsString 
+        });
+        
+        var canyonwindow = new google.maps.InfoWindow({
+          content: canyonString 
+        });
+        
+        var reefwindow = new google.maps.InfoWindow({
+          content: reefString 
+        });
+        
+        var riowindow = new google.maps.InfoWindow({
+          content: rioString 
+        });
+        
+        var staggwindow = new google.maps.InfoWindow({
+          content: staggString 
+        });
+        
+        var pyramidswindow = new google.maps.InfoWindow({
+          content: pyramidsString 
+        });
+        
+        var towerwindow = new google.maps.InfoWindow({
+          content: towerString 
+        });
+        
+        var familiawindow = new google.maps.InfoWindow({
+          content: familiaString 
+        });
+        
+        var mahalwindow = new google.maps.InfoWindow({
+          content: mahalString 
+        });
+        
+        var pichuwindow = new google.maps.InfoWindow({
+          content: pichuString 
+        });
+        
+        var meccawindow = new google.maps.InfoWindow({
+          content: meccaString 
+        });
+        
+        var marker = new google.maps.Marker({
+          position: Glasgow,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+          
+          
+        });
+        
+        var chinamarker = new google.maps.Marker({
+          position: China,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+          
+          
+        });
+        
+        var nessmarker = new google.maps.Marker({
+          position: LochNess,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Loch Ness'
+          
+          
+        });
+        
+        var fallsmarker = new google.maps.Marker({
+          position: Falls,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Niagra Falls'
+          
+          
+        });
+        
+        var canyonmarker = new google.maps.Marker({
+          position: Canyon,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Grand Canyon'
+          
+          
+        });
+        
+        var reefmarker = new google.maps.Marker({
+          position: Reef,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Great Barrier Reef'
+          
+          
+        });
+        
+        var riomarker = new google.maps.Marker({
+          position: Rio,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Christ the Redeemer'
+          
+          
+        });
+        
+        var staggmarker = new google.maps.Marker({
+          position: Stagg,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Reichstagg'
+          
+          
+        });
+        
+        var pyramidsmarker = new google.maps.Marker({
+          position: Pyramids,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Giza Pyramids'
+          
+          
+        });
+        
+        var towermarker = new google.maps.Marker({
+          position: Tower,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'The Eiffel Tower'
+          
+          
+        });
+        
+        var familiamarker = new google.maps.Marker({
+          position: Familia,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Sagrada Familia'
+          
+          
+        });
+        
+        var mahalmarker = new google.maps.Marker({
+          position: Mahal,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Taj Mahal'
+          
+          
+        });
+        
+        var pichumarker = new google.maps.Marker({
+          position: Pichu,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Machu Pichu'
+          
+          
+        });
+        
+        var meccamarker = new google.maps.Marker({
+          position: Mecca,
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: 'Mecca'
+          
+          
+        });
+    
+        
+        google.maps.event.addListener(marker, 'click', function() 
+        {
+          infowindow.close();
+          infowindow.open(map,marker);
+        });
+        
+        google.maps.event.addListener(chinamarker, 'click', function() {
+          infowindow.close();
+          chinawindow.open(map,chinamarker);
+        });
+        
+        google.maps.event.addListener(nessmarker, 'click', function() {
+          infowindow.close();
+          nesswindow.open(map,nessmarker);
+        });
+        
+        google.maps.event.addListener(fallsmarker, 'click', function() {
+          infowindow.close();
+          fallswindow.open(map,fallsmarker);  
+        });
+        
+        google.maps.event.addListener(canyonmarker, 'click', function() {
+          infowindow.close();
+          canyonwindow.open(map,canyonmarker);
+        });
+        
+        google.maps.event.addListener(reefmarker, 'click', function() {
+          infowindow.close();
+          reefwindow.open(map,reefmarker);
+        });
+        
+        google.maps.event.addListener(riomarker, 'click', function() {
+          infowindow.close();
+          riowindow.open(map,riomarker);
+        });
+        
+        google.maps.event.addListener(staggmarker, 'click', function() {
+          infowindow.close();
+          staggwindow.open(map,staggmarker);
+        });
+        
+        google.maps.event.addListener(pyramidsmarker, 'click', function() {
+          infowindow.close();
+          pyramidswindow.open(map,pyramidsmarker);
+        });
+        
+        google.maps.event.addListener(towermarker, 'click', function() {
+          infowindow.close();
+          towerwindow.open(map,towermarker);
+        });
+        
+        google.maps.event.addListener(familiamarker, 'click', function() {
+          infowindow.close();
+          familiawindow.open(map,familiamarker);
+        });
+        
+        google.maps.event.addListener(mahalmarker, 'click', function() {
+          infowindow.close();
+          mahalwindow.open(map,mahalmarker);
+        });
+        
+        google.maps.event.addListener(pichumarker, 'click', function() {
+          infowindow.close();
+          pichuwindow.open(map,pichumarker);
+        });
+        
+        google.maps.event.addListener(meccamarker, 'click', function() {
+          infowindow.close();
+          meccawindow.open(map,meccamarker);
+        });
+     
+      
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+</head>
+<body>
+  <div id="map-canvas" />
+</body>
+</html>
+
